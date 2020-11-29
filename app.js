@@ -5,7 +5,7 @@ const router = express.Router();
 const sendMail = require('./mail');
 
 const app = express();
-
+const port = process.env.PORT || 3000 ;
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({extend: false}));
@@ -35,6 +35,6 @@ app.post('/email', (req, res) => {
     res.json({ message: 'Message received!!!' })
 });
 
-app.listen("3000", function (req, res) {
-    console.log("SERVER IS RUNNING ON 3000");
+app.listen(port, function (req, res) {
+    console.log("SERVER IS RUNNING ON " + port);
 });
